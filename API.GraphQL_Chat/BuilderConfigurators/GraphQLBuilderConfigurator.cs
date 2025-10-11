@@ -14,7 +14,7 @@ public class GraphQLBuilderConfigurator
         // GraphQL.MicrosoftDIGraphQLBuilderExtensions
         builder.Services.AddGraphQL(options => 
             options.AddSchema<ChatSchema>()
-                .AddNewtonsoftJson()
+                .AddSystemTextJson() // use system text because it handles async io better than the newtonsoft extension
             );
         
     }

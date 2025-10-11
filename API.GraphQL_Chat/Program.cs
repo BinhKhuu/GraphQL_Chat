@@ -2,10 +2,12 @@ using API.GraphQL_Chat.AppConfigurators;
 using API.GraphQL_Chat.BuilderConfigurators;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.WebHost.ConfigureKestrel(options =>
-{
-    options.AllowSynchronousIO = true;
-});
+
+// you will need this if newtonsoft is used when configuration graphql in the builder configurator
+// builder.WebHost.ConfigureKestrel(options =>
+// {
+//     options.AllowSynchronousIO = true;
+// });
 
 GraphQLBuilderConfigurator.Configure(builder);
 var app = builder.Build();
