@@ -1,0 +1,6 @@
+@API.GraphQL_Chat_HostAddress = http://localhost:5147
+
+GET {{API.GraphQL_Chat_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
