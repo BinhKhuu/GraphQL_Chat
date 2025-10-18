@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <GenerateProgramFile>true</GenerateProgramFile>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
 
     <ItemGroup>
@@ -18,6 +19,21 @@
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.17"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
         <PackageReference Include="System.Reactive" Version="6.1.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Client.GraphQL_Chat\graph-ql-chat\angular.json" />
+      <_ContentIncludedByDefault Remove="Client.GraphQL_Chat\graph-ql-chat\package-lock.json" />
+      <_ContentIncludedByDefault Remove="Client.GraphQL_Chat\graph-ql-chat\package.json" />
+      <_ContentIncludedByDefault Remove="Client.GraphQL_Chat\graph-ql-chat\tsconfig.app.json" />
+      <_ContentIncludedByDefault Remove="Client.GraphQL_Chat\graph-ql-chat\tsconfig.json" />
+      <_ContentIncludedByDefault Remove="Client.GraphQL_Chat\graph-ql-chat\tsconfig.spec.json" />
     </ItemGroup>
 
 </Project>

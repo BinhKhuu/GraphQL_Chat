@@ -1,0 +1,13 @@
+services:
+  graphql-api:
+    build:
+      context: .
+      dockerfile: API.GraphQL_Chat/Dockerfile
+    ports: 
+      - "8081:8081"
+    develop:
+      watch :
+        - action: rebuild
+          path: ./API.GraphQL_Chat
+          target: /src/GraphQL_Chat
+    
