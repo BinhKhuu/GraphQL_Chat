@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.GraphQL_Chat", "API.GraphQL_Chat\API.GraphQL_Chat.csproj", "{FF2EC390-A63B-427D-AF1D-4F05A6CB54EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.GraphQL_Chat", "Tests.GraphQL_Chat\Tests.GraphQL_Chat.csproj", "{E4E4DCE9-DC66-4144-9C62-3CB7C0593361}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{FF2EC390-A63B-427D-AF1D-4F05A6CB54EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF2EC390-A63B-427D-AF1D-4F05A6CB54EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF2EC390-A63B-427D-AF1D-4F05A6CB54EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E4DCE9-DC66-4144-9C62-3CB7C0593361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E4DCE9-DC66-4144-9C62-3CB7C0593361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E4DCE9-DC66-4144-9C62-3CB7C0593361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E4DCE9-DC66-4144-9C62-3CB7C0593361}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
