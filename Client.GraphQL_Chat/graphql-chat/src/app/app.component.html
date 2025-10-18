@@ -1,16 +1,25 @@
+<div class="chat-wrapper">
+  <mat-toolbar color="primary">Chat Room</mat-toolbar>
 
-<!-- chat-box.component.html -->
-<mat-toolbar color="primary">Chat Room</mat-toolbar>
-
-<div class="chat-container">
-  <div class="chat-message" *ngFor="let msg of messages">
-    {{ msg }}
+  <div class="chat-container">
+    <div class="chat-message" *ngFor="let msg of messages">
+      <div class="message-text">{{ msg.text }}</div>
+      <div class="message-meta">
+        <span class="username">{{ msg.user }}</span>
+        <span class="timestamp">{{ msg.timestamp }}</span>
+      </div>
+    </div>
   </div>
-</div>
 
-<div class="chat-input">
-  <mat-form-field appearance="outline" class="input-field">
-    <input matInput [(ngModel)]="newMessage" placeholder="Type a message..." />
-  </mat-form-field>
-  <button mat-raised-button color="accent" (click)="sendMessage()">Send</button>
+  <div class="chat-input">
+    <mat-form-field appearance="outline" class="input-field">
+      <input
+        matInput
+        [(ngModel)]="newMessage"
+        placeholder="Type a message..."
+        (keydown.enter)="sendMessage()"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="accent" (click)="sendMessage()">Send</button>
+  </div>
 </div>

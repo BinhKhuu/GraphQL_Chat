@@ -1,20 +1,70 @@
-/* chat-box.component.scss */
 .chat-container {
-    height: 300px;
-    overflow-y: auto;
+    width: 100%;
+    max-width: 600px; 
+    margin: 1rem auto;
     padding: 1rem;
     background: #f5f5f5;
     border: 1px solid #ccc;
-    margin: 1rem 0;
+    height: 300px;
+    overflow-y: auto;
+    border-radius: 8px;
+  }
+
+  .chat-container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 600px) {
+    .chat-container {
+      max-width: 90%;
+    }
   }
   
+  
+  
   .chat-message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.5rem;
     padding: 0.5rem;
     background: #e0e0e0;
     border-radius: 4px;
+    max-width: 100%;
   }
   
+  
+  .message-text {
+    flex: 1;
+    padding-right: 1rem;
+  }
+  
+  .message-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.8rem;
+    color: #555;
+  }
+  
+  .username {
+    font-weight: bold;
+  }
+  
+  .timestamp {
+    font-style: italic;
+  }
+
+  .chat-wrapper {
+    max-width: 600px;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+
   .chat-input {
     display: flex;
     gap: 1rem;
