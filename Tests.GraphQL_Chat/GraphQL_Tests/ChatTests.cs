@@ -68,12 +68,13 @@ public class ChatTests : IClassFixture<WebApplicationFactory<API.GraphQL_Chat.Pr
         _factory = new WebApplicationFactory<API.GraphQL_Chat.Program>()
         .WithWebHostBuilder(builder =>
         {
-            builder.UseKestrel(); // Enables full WebSocket support
+            //builder.UseKestrel(); // Enables full WebSocket support
         });
         
         // Create websocket client
         var webSocketClient = _factory.Server.CreateWebSocketClient();
-        webSocketClient.ConfigureRequest = req => req.Headers.Add("sec-websocket-protocol", "graphql-ws");
+        webSocketClient.SubProtocols.Add("graphql-transport-ws");
+        //webSocketClient.ConfigureRequest = req => req.Headers.Add("sec-websocket-protocol", "graphql-ws");
         
         // Send connection_init
         var subscriptionInitRequest = Encoding.UTF8.GetBytes(
@@ -134,7 +135,7 @@ public class ChatTests : IClassFixture<WebApplicationFactory<API.GraphQL_Chat.Pr
         var subscriptionRequestPayload = new
         {
             id = "1",
-            type = "start",
+            type = "subscribe",
             payload = new
             {
                 query = subscriptionRequest
