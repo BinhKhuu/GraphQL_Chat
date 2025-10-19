@@ -51,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: WebApp
-          path: ../Client.GraphQL_Chat/graphql-chat/dist/
+          path: ./Client.GraphQL_Chat/graphql-chat/dist/
   
   api-tests:
     runs-on: ubuntu-latest 
