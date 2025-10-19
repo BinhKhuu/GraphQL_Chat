@@ -28,3 +28,8 @@ subscription {
   }
 }
 ```
+
+# Docker
+Run docker compose file
+Web is on 4200 (http)
+Api is on 5147 (http)

@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: API.GraphQL_Chat/Dockerfile
     ports: 
-      - "8081:8081"
+      - "5147:8080"
     develop:
       watch :
         - action: rebuild
