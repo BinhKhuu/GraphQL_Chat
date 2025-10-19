@@ -73,8 +73,8 @@ public class ChatTests : IClassFixture<WebApplicationFactory<API.GraphQL_Chat.Pr
         
         // Create websocket client
         var webSocketClient = _factory.Server.CreateWebSocketClient();
-        webSocketClient.SubProtocols.Add("graphql-transport-ws");
-        //webSocketClient.ConfigureRequest = req => req.Headers.Add("sec-websocket-protocol", "graphql-ws");
+        webSocketClient.SubProtocols.Add("graphql-transport-ws"); //graphql-transport-ws uses connection_init, subscribe
+        //webSocketClient.ConfigureRequest = req => req.Headers.Add("sec-websocket-protocol", "graphql-ws"); //graphql-ws uses connection_init, start
         
         // Send connection_init
         var subscriptionInitRequest = Encoding.UTF8.GetBytes(
@@ -135,7 +135,7 @@ public class ChatTests : IClassFixture<WebApplicationFactory<API.GraphQL_Chat.Pr
         var subscriptionRequestPayload = new
         {
             id = "1",
-            type = "subscribe",
+            type = "subscribe", // change depending on the sub protocole used graphql-transport-ws or graphql-ws (currently graphql-transport-ws for subscribe)
             payload = new
             {
                 query = subscriptionRequest
@@ -177,7 +177,7 @@ public class ChatTests : IClassFixture<WebApplicationFactory<API.GraphQL_Chat.Pr
         var subscriptionRequestPayload = new
         {
             id = "1",
-            type = "start",
+            type = "subscribe", // change depending on the sub protocole used graphql-transport-ws or graphql-ws (currently graphql-transport-ws for subscribe)
             payload = new
             {
                 query = subscriptionRequest
@@ -192,8 +192,8 @@ public class ChatTests : IClassFixture<WebApplicationFactory<API.GraphQL_Chat.Pr
         var subscriptionResult = await webSocket.ReceiveAsync(new ArraySegment<byte>(subscriptionResultBuffer), CancellationToken.None);
         var message = Encoding.UTF8.GetString(subscriptionResultBuffer, 0, subscriptionResult.Count);
         
-        var received = await WaitForSubscriptionMessage(webSocket, "errors");
-        Assert.Contains("errors", received);
+        var received = await WaitForSubscriptionMessage(webSocket, "error");
+        Assert.Contains("error", received);
     }
 
 }
