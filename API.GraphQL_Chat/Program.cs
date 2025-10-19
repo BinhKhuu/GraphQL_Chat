@@ -9,12 +9,23 @@ var builder = WebApplication.CreateBuilder(args);
 //     options.AllowSynchronousIO = true;
 // });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AngularLocalHost", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 GraphQLBuilderConfigurator.Configure(builder);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors("AngularLocalHost");
     //app.UseSwagger();
     //app.UseSwaggerUI();
 }

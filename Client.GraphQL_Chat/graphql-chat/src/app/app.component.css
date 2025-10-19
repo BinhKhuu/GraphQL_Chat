@@ -20,9 +20,7 @@
       max-width: 90%;
     }
   }
-  
-  
-  
+
   .chat-message {
     display: flex;
     justify-content: space-between;

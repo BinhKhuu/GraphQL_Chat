@@ -10,4 +10,15 @@ services:
         - action: rebuild
           path: ./API.GraphQL_Chat
           target: /src/GraphQL_Chat
-    
+  
+  graphq-client:
+    build:
+      context: ./Client.GraphQL_Chat/graphql-chat
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    develop:
+      watch:
+        - action: rebuild
+          path: ./Client.GraphQL_Chat/graphql-chat
+          target: /Client.GraphQL_Chat
