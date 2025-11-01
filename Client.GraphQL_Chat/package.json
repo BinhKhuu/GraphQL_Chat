@@ -1,0 +1,7 @@
+{
+  "devDependencies": {
+    "@graphql-codegen/cli": "^6.0.1",
+    "graphql": "^16.11.0",
+    "typescript": "^5.9.3"
+  }
+}

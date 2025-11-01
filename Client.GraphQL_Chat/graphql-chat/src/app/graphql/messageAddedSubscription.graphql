@@ -1,0 +1,9 @@
+subscription MessageAdded {
+  messageAdded {
+    content
+    sentAt
+    from {
+      id
+    }
+  }
+}

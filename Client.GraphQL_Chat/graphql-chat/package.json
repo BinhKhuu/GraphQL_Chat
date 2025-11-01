@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "docker": "ng serve --host 0.0.0.0 --port 4200 --disable-host-check"
+    "docker": "ng serve --host 0.0.0.0 --port 4200 --disable-host-check",
+    "n": "gql-gen --config codegen.yml",
+    "generate": "gql-gen --config codegen.yml"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
     "@apollo/client": "^4.0.1",
+    "@graphql-codegen/introspection": "^5.0.0",
     "apollo-angular": "^12.0.0",
     "graphql": "^16",
     "graphql-ws": "^5.16.2",
@@ -33,6 +36,10 @@
     "@angular-devkit/build-angular": "^19.0.2",
     "@angular/cli": "^19.0.2",
     "@angular/compiler-cli": "^19.0.0",
+    "@graphql-codegen/cli": "^6.0.1",
+    "@graphql-codegen/typescript": "^5.0.2",
+    "@graphql-codegen/typescript-apollo-angular": "^4.0.1",
+    "@graphql-codegen/typescript-operations": "^5.0.2",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.4.0",
     "karma": "~6.4.0",
@@ -40,6 +47,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "npm-force-resolutions": "^0.0.10",
     "typescript": "~5.6.2"
   }
 }
