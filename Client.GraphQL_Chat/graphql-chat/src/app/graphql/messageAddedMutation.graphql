@@ -1,0 +1,14 @@
+mutation AddMessage($fromId: String!, $content: String!, $sentAt: DateTimeOffset!) {
+  addMessage(message: {
+    fromId: $fromId,
+    content: $content,
+    sentAt: $sentAt
+  }) {
+    content
+    sentAt
+    from {
+      id
+      displayName
+    }
+  }
+}

@@ -8,6 +8,15 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: 
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
+export type AddMessageMutationVariables = Exact<{
+  fromId: Scalars['String']['input'];
+  content: Scalars['String']['input'];
+  sentAt: Scalars['DateTimeOffset']['input'];
+}>;
+
+
+export type AddMessageMutation = { __typename?: 'ChatMutation', addMessage?: { __typename?: 'Message', content: string, sentAt: any, from?: { __typename?: 'MessageFrom', id: string, displayName: string } | null } | null };
+
 export type MessageAddedSubscriptionVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -81,6 +90,29 @@ export type MessageInput = {
   sentAt?: InputMaybe<Scalars['DateTimeOffset']['input']>;
 };
 
+export const AddMessageDocument = gql`
+    mutation AddMessage($fromId: String!, $content: String!, $sentAt: DateTimeOffset!) {
+  addMessage(message: {fromId: $fromId, content: $content, sentAt: $sentAt}) {
+    content
+    sentAt
+    from {
+      id
+      displayName
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class AddMessageGQL extends Apollo.Mutation<AddMessageMutation, AddMessageMutationVariables> {
+    document = AddMessageDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
 export const MessageAddedDocument = gql`
     subscription MessageAdded {
   messageAdded {
