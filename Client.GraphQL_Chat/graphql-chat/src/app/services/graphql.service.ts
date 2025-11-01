@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
+import { MessageAddedGQL } from '../../generated/graphql';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,8 @@ import { Apollo, gql } from 'apollo-angular';
 export class GraphqlService {
   private name: string = '';
   constructor(
-    private readonly apollo: Apollo
+    private readonly apollo: Apollo,
+    private readonly messageAddedSubscription: MessageAddedGQL
   ) { 
 
     this.name = this.generateRandomName();
@@ -58,9 +60,10 @@ export class GraphqlService {
   }
 
   subscribeToChat(){
-    return this.apollo.subscribe({
-      query: this.MESSAGE_RECEIVED_SUBSCRIPTION
-    });
+    return this.messageAddedSubscription.subscribe();
+    // return this.apollo.subscribe({
+    //   query: this.MESSAGE_RECEIVED_SUBSCRIPTION
+    // });
   }
 
 
