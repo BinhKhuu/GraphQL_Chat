@@ -25,11 +25,12 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseCors("AngularLocalHost");
+    
     //app.UseSwagger();
     //app.UseSwaggerUI();
 }
-
+// this is here to test docker move back to isdevelopment check when building for prod
+app.UseCors("AngularLocalHost");
 if (!app.Environment.IsDevelopment())
 {
     app.UseHttpsRedirection();
