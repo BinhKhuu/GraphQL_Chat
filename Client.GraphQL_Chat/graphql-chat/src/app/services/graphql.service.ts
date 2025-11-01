@@ -30,7 +30,7 @@ export class GraphqlService {
       error: (error) => console.log('error', error)
     })
 
-
+    // old way to add message mutation
     // let messageMutation = gql`
     //     mutation {
     //     addMessage(message: {
